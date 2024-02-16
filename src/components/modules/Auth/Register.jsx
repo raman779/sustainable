@@ -13,38 +13,41 @@ import theme from '../../../styles/theme';
 
 
 const StyledPaper = styled("div")(({ theme }) => ({
-  padding: theme.spacing(2),
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  justifyContent: 'center',
-  height: '70vh',
+    padding: theme.spacing(2),
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '80vh',
+    [theme.breakpoints.down('sm')]: {
+      height: '100vh',
+      padding:theme.spacing(8)
+    },
+  }));
 
-  [theme.breakpoints.down('sm')]: {
-    height: '100vh',
-    padding: theme.spacing(8)
-  },
-}));
-
-const Login = ({ setLogin }) => {
+const Register = ({setLogin}) => {
   return (
     <>
       <CssBaseline />
-      <Container component="main" style={{ padding: 0 }} maxWidth="sm">
+      <Container component="main" style={{padding:0 ,}} maxWidth="sm">
         <StyledPaper
           elevation={3}
         >
-          <Typography variant="h3600">Log In</Typography>
-          <Typography variant="subtitle2" onClick={() => setLogin(false)} style={{ cursor: 'pointer' }}>
-            New? Create an Account
+          <Typography variant="h3600" style={{ marginTop:'20px'}}>Create new Account</Typography>
+          <Typography onClick={() => setLogin(true)} style={{cursor:'pointer'}} variant="subtitle2">
+            Already Registered? Log in here.
           </Typography>
-          <form style={{ width: '100%', marginTop: '20px' }} onSubmit={() => { window.location.href = '/details' }}>
-            <Grid container spacing={2}>
+
+          <form style={{ width: '100%', marginTop: '20px' }}>
+            <Grid container spacing={1}>
+              <Grid item xs={12}>
+                <TextInput label="Name" />
+              </Grid>
               <Grid item xs={12}>
                 <TextInput label="Email" />
               </Grid>
               <Grid item xs={12}>
-                <TextInput type="password" label="Password" />
+                <TextInput label="Password" type="password"/>
               </Grid>
             </Grid>
 
@@ -53,19 +56,11 @@ const Login = ({ setLogin }) => {
               fullWidth
               variant="contained"
               color="secondary"
-
+              
               style={{ marginTop: '20px' }}
             >
-              Sign In
+              Sign Up
             </Button>
-            <Box pl={theme.spacing(1)} style={{ textAlign: 'left' }}>
-              <FormControlLabel
-                control={<input type='checkbox' />}
-                label={<Typography variant='body2'>REMEMBER LOG IN</Typography>}
-                style={{ marginTop: '10px' }}
-
-              />
-            </Box>
           </form>
         </StyledPaper>
       </Container>
@@ -73,4 +68,4 @@ const Login = ({ setLogin }) => {
   );
 };
 
-export default Login;
+export default Register;

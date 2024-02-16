@@ -6,11 +6,14 @@ const theme = createTheme({
         primary: {
             main: '#fd4958',
         },
+        error:{
+            main:'#fff'
+        },
         secondary: {
             main: '#02140A',
         },
         backgroundGradient: {
-            backgroundImage: 'linear-gradient(to bottom right, #af0000, #dc0202)',
+            backgroundImage: 'linear-gradient(330deg, #ca0000 64%, #9e0001 58%)',
         },
     },
     typography: {
@@ -19,6 +22,11 @@ const theme = createTheme({
             fontSize: '1.875rem', 
             fontWeight: 400,
             color: '#ffffff', 
+        },
+        h3600:{
+            fontSize: '1.875rem', 
+            fontWeight: 600,
+            color: '#ffffff',
         },
         h4: {
             fontSize: '1.5rem', 
@@ -31,15 +39,20 @@ const theme = createTheme({
             color: '#ffffff', 
         },
         body1: {
-            fontSize: '1rem',
+            fontSize: '.8rem',
             fontWeight: 400,
             color: '#ffffff',
         },
         body2: {
-            fontSize: '0.9rem',
+            fontSize: '0.7rem',
             fontWeight: 400,
-            color: '#888888',
+            color: '#ffffff',
         },
+        subtitle2:{
+            fontSize: '0.7rem',
+            fontWeight: 400,
+            color: '#ffffff',
+        }
     },
     components: {
         MuiButton: {
@@ -48,11 +61,18 @@ const theme = createTheme({
                     textTransform: 'none',
                     borderRadius: '10px',
                     minWidth:'12rem',
-                    minHeight:"2.5rem",
+                    minHeight:"3rem",
                     fontWeight:'600'
                 },
             },
         },
+        MuiPaper:{
+            styleOverrides: {
+                root: {
+                    backgroundColor:"none"
+                },
+            },
+        }
     },
 });
 

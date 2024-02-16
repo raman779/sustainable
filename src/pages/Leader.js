@@ -1,19 +1,19 @@
 import React, { useState } from 'react'
 import { useTheme } from '@mui/material/styles';
-import Login from '../components/modules/Auth/Login';
-import Register from '../components/modules/Auth/Register';
 import { Box } from '@mui/material'
+import DiscipleAddress from '../components/modules/Detail/DiscipleAddress';
+import DiscipleJourney from '../components/modules/Detail/DiscipleJourney';
 
 const Auth = () => {
     const theme = useTheme()
-    const [login, setLogin] = useState(false);
+    const [address, setAddress] = useState(false);
     return (
         <div >
             <Box style={{
                 maxWidth: "22rem",
                 margin: "auto"
             }}>
-                {login ? <Login setLogin={setLogin} /> : <Register setLogin={setLogin} />}
+                {address ? <DiscipleJourney setAddress={setAddress}/> : <DiscipleAddress  setAddress={setAddress}/>}
 
             </Box>
         </div>
