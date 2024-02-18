@@ -49,7 +49,7 @@ const theme = createTheme({
             color: '#ffffff',
         },
         subtitle2:{
-            fontSize: '0.7rem',
+            fontSize: '0.6rem',
             fontWeight: 400,
             color: '#ffffff',
         }

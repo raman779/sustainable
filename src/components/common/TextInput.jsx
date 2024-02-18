@@ -40,10 +40,10 @@ const InputField = styled(TextField)({
   },
 });
 
-const TextInput = ({ label, error, helperText, ...rest }) => {
+const TextInput = ({ label, error, helperText,labelVariant = "body2", ...rest }) => {
   return (
     <InputContainer>
-      {label && <TypographyInput variant="body2">{label.toUpperCase()}</TypographyInput>}
+      {label && <TypographyInput variant={labelVariant}>{label.toUpperCase()}</TypographyInput>}
       <InputField
         error={error}
         helperText={helperText}

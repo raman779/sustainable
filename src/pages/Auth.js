@@ -14,7 +14,6 @@ const Auth = () => {
                 margin: "auto"
             }}>
                 {login ? <Login setLogin={setLogin} /> : <Register setLogin={setLogin} />}
-
             </Box>
         </div>
     )

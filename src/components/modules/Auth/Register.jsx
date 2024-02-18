@@ -9,6 +9,7 @@ import { Typography, Grid, Box } from '@mui/material';
 import TextInput from '../../common/TextInput';
 import { styled } from '@mui/system';
 import theme from '../../../styles/theme';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 
 
@@ -26,6 +27,11 @@ const StyledPaper = styled("div")(({ theme }) => ({
   }));
 
 const Register = ({setLogin}) => {
+
+  const navigate = useNavigate()
+
+
+
   return (
     <>
       <CssBaseline />
@@ -34,7 +40,7 @@ const Register = ({setLogin}) => {
           elevation={3}
         >
           <Typography variant="h3600" style={{ marginTop:'20px'}}>Create new Account</Typography>
-          <Typography onClick={() => setLogin(true)} style={{cursor:'pointer'}} variant="subtitle2">
+          <Typography onClick={() => setLogin(true)} style={{cursor:'pointer'}} variant="body2">
             Already Registered? Log in here.
           </Typography>
 
@@ -56,7 +62,7 @@ const Register = ({setLogin}) => {
               fullWidth
               variant="contained"
               color="secondary"
-              
+              onClick={() => {navigate("/details")}}
               style={{ marginTop: '20px' }}
             >
               Sign Up
