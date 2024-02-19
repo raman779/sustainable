@@ -1,8 +1,10 @@
+import { useTheme } from '@mui/material';
 import Button from '@mui/material/Button';
 
-const CustomButton = ({ onClick = () => { }, text, variant = "filed", color="secondary" }) => {
+const CustomButton = ({ onClick = () => { }, text, variant = "contained", color="secondary" }) => {
+    const theme = useTheme()
     return (
-        <Button variant={variant} color={color} onClick={onClick}>
+        <Button style={{marginBlock:theme.spacing(2)}} fullWidth variant={variant} color={color} onClick={onClick}>
             {text}
         </Button>
     );
