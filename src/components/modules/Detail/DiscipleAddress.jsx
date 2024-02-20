@@ -12,28 +12,26 @@ import theme from '../../../styles/theme';
 
 
 
-const StyledPaper = styled("div")(({ theme }) => ({
-    padding: theme.spacing(2),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: '70vh',
+// const StyledPaper = styled("div")(({ theme }) => ({
+//     padding: theme.spacing(2),
+//     display: 'flex',
+//     flexDirection: 'column',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//     height: '70vh',
 
-    [theme.breakpoints.down('sm')]: {
-        height: '100vh',
-        padding: theme.spacing(8)
-    },
-}));
+//     [theme.breakpoints.down('sm')]: {
+//         height: '100vh',
+//         padding: theme.spacing(8)
+//     },
+// }));
 
 const DiscipleAddress = ({ setAddress}) => {
     return (
         <>
             <CssBaseline />
-            <Container component="main" style={{ padding: 0 }} maxWidth="sm">
-                <StyledPaper
-                    elevation={3}
-                >
+
+
                     <Typography variant="h3">Tell Us About You</Typography>
 
                     <form style={{ width: '100%', marginTop: '20px' }} onSubmit={()=>setAddress(true)}>
@@ -63,8 +61,7 @@ const DiscipleAddress = ({ setAddress}) => {
                             Continue
                         </Button>
                     </form>
-                </StyledPaper>
-            </Container>
+
         </>
     );
 };

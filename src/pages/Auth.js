@@ -8,14 +8,14 @@ const Auth = () => {
     const theme = useTheme()
     const [login, setLogin] = useState(false);
     return (
-        <div >
+        // <div >
             <Box style={{
                 maxWidth: "22rem",
                 margin: "auto"
             }}>
                 {login ? <Login setLogin={setLogin} /> : <Register setLogin={setLogin} />}
             </Box>
-        </div>
+        // </div>
     )
 }
 

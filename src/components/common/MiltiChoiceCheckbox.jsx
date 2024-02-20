@@ -1,15 +1,20 @@
+import React from 'react';
 import { Typography } from "@mui/material";
 import CheckBoxInput from "./CheckBoxInput";
 import { Box } from "@mui/system";
 import theme from "../../styles/theme";
 
-const MultiChoiceCheckbox = ({checkBoxLabels,label}) => {
-    return(
-        <Box pt={theme.spacing(2)}>
+const MultiChoiceCheckbox = ({ checkBoxLabels, label, multi = false }) => {
+    return (
+        <Box pt={theme.spacing(1)}>
             <Typography textAlign={"left"} variant="body1">{label}</Typography>
-            <CheckBoxInput checked={false} label={checkBoxLabels[0]}/>
-            <CheckBoxInput checked={false} label={checkBoxLabels[1]}/>
-            <CheckBoxInput checked={false} label={checkBoxLabels[2]}/>
+            <Box display="flex" flexDirection={multi && checkBoxLabels.length===4 ? "row" : "column"} flexWrap="wrap">
+                {checkBoxLabels.map((label, index) => (
+                    <Box key={index} width={multi && checkBoxLabels.length===4  ? "50%" : "100%"} maxWidth={multi ? "50%" : "100%"} >
+                        <CheckBoxInput checked={false} label={label.text || label} />
+                    </Box>
+                ))}
+            </Box>
         </Box>
     )
 }

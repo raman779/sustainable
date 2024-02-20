@@ -1,45 +1,40 @@
 import React from 'react';
-import CssBaseline from '@mui/material/CssBaseline';
-import Container from '@mui/material/Container';
-import Paper from '@mui/material/Paper';
-import Button from '@mui/material/Button';
-import Checkbox from '@mui/material/Checkbox';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import { Typography, Grid, Box } from '@mui/material';
-import TextInput from '../../common/TextInput';
-import { styled } from '@mui/system';
-import theme from '../../../styles/theme';
+import MultiChoiceCheckbox from "../../common/MiltiChoiceCheckbox";
+import FormWrapper from "../../common/StyledFormWrapper";
+import { leaderJourneyDetails } from "../../../constants";
+import { Box } from "@mui/material";
 
+import { Grid } from "@mui/material";
 
-
-const StyledPaper = styled("div")(({ theme }) => ({
-    padding: theme.spacing(2),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: '70vh',
-
-    [theme.breakpoints.down('sm')]: {
-        height: '100vh',
-        padding: theme.spacing(8)
-    },
-}));
-
-const DiscipleAddress = ({ }) => {
+const DiscipleJourney = ({ nextPage }) => {
     return (
-        <>
-            <CssBaseline />
-            <Container component="main" style={{ padding: 0 }} maxWidth="sm">
-                <StyledPaper
-                    elevation={3}
-                >
-                    <Typography variant="h3">Tell Us About Your Journey</Typography>
-
-                </StyledPaper>
-            </Container>
-        </>
+        <FormWrapper
+            buttonInputs={[{ text: "continue", onClick: () => { nextPage() } }]}
+            headingText='Tell Us About Journey'
+        >
+            <Grid container spacing={2} mt={1}>
+                {leaderJourneyDetails.questions.map((value, index) => (
+                    <React.Fragment key={index}>
+                        {value.display === "multiple" ? (
+                            <Grid item xs={12}>
+                                <Grid container spacing={2}>
+                                    {value.questions.map((subValue, subIndex) => (
+                                        <Grid key={subIndex} item xs={6}>
+                                            <MultiChoiceCheckbox label={subValue.text} checkBoxLabels={subValue.choices} multi={true}/>
+                                        </Grid>
+                                    ))}
+                                </Grid>
+                            </Grid>
+                        ) : (
+                            <Grid item xs={12}>
+                                <MultiChoiceCheckbox label={value.text} checkBoxLabels={value.choices} />
+                            </Grid>
+                        )}
+                    </React.Fragment>
+                ))}
+            </Grid>
+        </FormWrapper>
     );
 };
 
-export default DiscipleAddress;
+export default DiscipleJourney;

@@ -4,7 +4,7 @@ import {Grid } from '@mui/material';
 import TextInput from '../../common/TextInput';
 import FormWrapper from '../../common/StyledFormWrapper';
 import CheckBoxInput from '../../common/CheckBoxInput';
-import CommonContainer from '../../common/CommonContainer';
+
 import { useNavigate } from 'react-router-dom';
 
 
@@ -19,7 +19,7 @@ const Login = ({ setLogin }) => {
   return (
     <>
       <CssBaseline />
-      <CommonContainer>
+
       <FormWrapper
         subHeadingText={{text:"New ? Create an Account",onClick :() => {setLogin(prev => !prev)}}}
         buttonInputs={[{text:"sign in",onClick:() => {navigate("/group")}}]}
@@ -35,7 +35,7 @@ const Login = ({ setLogin }) => {
           </Grid>
       </FormWrapper>
       <CheckBoxInput checked = {false} label = "Remember Login"/>
-      </CommonContainer>
+
     </>
   );
 };

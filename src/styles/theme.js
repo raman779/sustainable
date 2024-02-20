@@ -71,6 +71,7 @@ const theme = createTheme({
                 },
             },
         },
+     
         MuiPaper: {
             styleOverrides: {
                 root: {
@@ -85,7 +86,7 @@ const theme = createTheme({
                     '& .MuiInputBase-input': {
                         padding: '10px',
                         borderRadius: "12px",
-                        backgroundColor: '#ee8f8f',
+                        backgroundColor: 'rgba(255,255,255,0.5)',
                         color: 'white',
                         height: "2.5rem",
                         fontSize:'1.2rem'
@@ -96,7 +97,7 @@ const theme = createTheme({
                         },
                     },
                     '& .MuiInputBase-input:focus': {
-                        backgroundColor: '#ee8f8f',
+                        backgroundColor: 'rgba(255,255,255,0.5)',
                     },
                     '& .MuiInputBase-input::placeholder': {
                         color: 'white',

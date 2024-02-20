@@ -10,6 +10,10 @@ import { styled } from '@mui/system';
 const AppContainer = styled('div')(({ theme }) => ({
     textAlign: 'center',
     height: '100vh',
+    display: 'flex',
+    alignItems: "center",
+    justifyContent: "center", 
+    minHeight: "100%", 
     ...theme.palette.backgroundGradient,
   }));
 function App() {

@@ -8,25 +8,26 @@ const StyledPaper = styled("div")(({ theme }) => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    height: '70vh',
+    // height: '70vh',
   
-    // [theme.breakpoints.down('sm')]: {
-    //   height: '100vh',
-    //   padding: theme.spacing(4)
-    // },
+    [theme.breakpoints.down('sm')]: {
+      // height: '100vh',
+      padding: theme.spacing(4),
+      maxWidth:'20rem',
+    },
   }));
 
 
 
   const CommonContainer = ({children}) => {
     return(
-        <Container component="main" style={{ padding: 0 }} maxWidth="sm">
+
             <StyledPaper
             elevation={3}
             >
                 {children} 
             </StyledPaper>
-        </Container>
+
     )
   }
 

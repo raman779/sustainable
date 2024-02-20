@@ -8,7 +8,7 @@ const Auth = () => {
     const theme = useTheme()
     const [address, setAddress] = useState(false);
     return (
-        <div >
+
             <Box style={{
                 maxWidth: "22rem",
                 margin: "auto"
@@ -16,7 +16,7 @@ const Auth = () => {
                 {address ? <DiscipleJourney setAddress={setAddress}/> : <DiscipleAddress  setAddress={setAddress}/>}
 
             </Box>
-        </div>
+
     )
 }
 

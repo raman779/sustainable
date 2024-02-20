@@ -13,18 +13,15 @@ import { Navigate, useNavigate } from 'react-router-dom';
 
 
 
-const StyledPaper = styled("div")(({ theme }) => ({
-    padding: theme.spacing(2),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: '80vh',
-    [theme.breakpoints.down('sm')]: {
-      height: '100vh',
-      padding:theme.spacing(4)
-    },
-  }));
+// const StyledPaper = styled("div")(({ theme }) => ({
+//     padding: theme.spacing(2),
+//     display: 'flex',
+//     flexDirection: 'column',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//     height: '80vh',
+
+//   }));
 
 const Register = ({setLogin}) => {
 
@@ -36,9 +33,7 @@ const Register = ({setLogin}) => {
     <>
       <CssBaseline />
       <Container component="main" style={{padding:0 ,}} maxWidth="sm">
-        <StyledPaper
-          elevation={3}
-        >
+
           <Typography variant="h3" >Create new Account</Typography>
           <Typography onClick={() => setLogin(true)} style={{cursor:'pointer'}} variant="h6">
             Already Registered? Log in here.
@@ -68,7 +63,7 @@ const Register = ({setLogin}) => {
               Sign Up
             </Button>
           </form>
-        </StyledPaper>
+        {/* </StyledPaper> */}
       </Container>
     </>
   );
