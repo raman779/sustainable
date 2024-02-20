@@ -3,6 +3,7 @@ import { Accordion, AccordionSummary, AccordionDetails, Typography, TextField, B
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import theme from '../styles/theme';
 import AddIcon from '@mui/icons-material/Add';
+import CommonContainer from '../components/common/CommonContainer';
 
 function Home() {
     const [formDataList, setFormDataList] = useState([]);
@@ -26,10 +27,7 @@ function Home() {
     };
 
     return (
-      <Box style={{
-        maxWidth: "22rem",
-        margin: "auto"
-    }} mt={2}> 
+       <CommonContainer> 
             {formDataList.map((formData, index) => (
                 <Accordion key={index} TransitionProps={{ unmountOnExit: true }} style={{ marginTop: '20px' }}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
@@ -79,7 +77,7 @@ function Home() {
                 </IconButton>
 
             </div>
-        </Box>
+        </CommonContainer>
     );
 }
 

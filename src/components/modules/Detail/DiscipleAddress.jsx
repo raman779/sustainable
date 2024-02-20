@@ -1,14 +1,8 @@
 import React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
-import Container from '@mui/material/Container';
-import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
-import Checkbox from '@mui/material/Checkbox';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import { Typography, Grid, Box } from '@mui/material';
 import TextInput from '../../common/TextInput';
-import { styled } from '@mui/system';
-import theme from '../../../styles/theme';
 
 
 

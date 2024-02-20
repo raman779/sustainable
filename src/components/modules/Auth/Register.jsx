@@ -10,6 +10,7 @@ import TextInput from '../../common/TextInput';
 import { styled } from '@mui/system';
 import theme from '../../../styles/theme';
 import { Navigate, useNavigate } from 'react-router-dom';
+import FormWrapper from '../../common/StyledFormWrapper';
 
 
 
@@ -32,14 +33,11 @@ const Register = ({setLogin}) => {
   return (
     <>
       <CssBaseline />
-      <Container component="main" style={{padding:0 ,}} maxWidth="sm">
-
-          <Typography variant="h3" >Create new Account</Typography>
-          <Typography onClick={() => setLogin(true)} style={{cursor:'pointer'}} variant="h6">
-            Already Registered? Log in here.
-          </Typography>
-
-          <form style={{ width: '100%', marginTop: '20px' }}>
+      <FormWrapper
+        subHeadingText={{text:"Already Registered? Log in here",onClick :() => {setLogin(prev => !prev)}}}
+        buttonInputs={[{text:"sign up",onClick:() => {navigate("/details")}}]}
+        headingText='Create new Account'
+      >
             <Grid container spacing={1}>
               <Grid item xs={12}>
                 <TextInput label="Name" labelVariant='body1' />
@@ -51,20 +49,7 @@ const Register = ({setLogin}) => {
                 <TextInput label="Password" type="password" labelVariant='body1'/>
               </Grid>
             </Grid>
-
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="secondary"
-              onClick={() => {navigate("/details")}}
-              style={{ marginTop: '20px' }}
-            >
-              Sign Up
-            </Button>
-          </form>
-        {/* </StyledPaper> */}
-      </Container>
+      </FormWrapper>
     </>
   );
 };

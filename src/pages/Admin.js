@@ -1,6 +1,7 @@
 import { Box } from "@mui/system";
 import { useState } from "react";
 import { InviteLeader } from "../components/modules/Admin"
+import CommonContainer from "../components/common/CommonContainer";
 
 const Admin = () => {
 
@@ -15,12 +16,10 @@ const Admin = () => {
 
     return (
 
-        <Box mt ={2} style={{
-            maxWidth: "22rem",
-            margin: "auto"
-        }}>
+        <CommonContainer>
             <InviteLeader />
-        </Box>
+        </CommonContainer>
+        
 
     )
 }

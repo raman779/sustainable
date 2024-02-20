@@ -1,34 +1,16 @@
-import { styled } from '@mui/system';
-import Container from '@mui/material/Container';
+import { styled } from "@mui/system"
 
-
-
-const StyledPaper = styled("div")(({ theme }) => ({
-    padding: theme.spacing(2),
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    // height: '70vh',
-  
-    [theme.breakpoints.down('sm')]: {
-      // height: '100vh',
-      padding: theme.spacing(4),
-      maxWidth:'20rem',
-    },
+const CommonBox = styled("div")(({ theme }) => ({
+    padding:theme.spacing(4)
   }));
 
 
-
-  const CommonContainer = ({children}) => {
+const CommonContainer = ({children , ...rest}) => {
     return(
-
-            <StyledPaper
-            elevation={3}
-            >
-                {children} 
-            </StyledPaper>
-
+        <CommonBox {...rest}>
+            {children}
+        </CommonBox>
     )
-  }
+}
 
-  export default CommonContainer;
+export default CommonContainer

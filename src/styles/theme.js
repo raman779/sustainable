@@ -83,6 +83,7 @@ const theme = createTheme({
             styleOverrides: {
                 root: {
                     backgroundColor: 'transparent',
+                    width:'100%',
                     '& .MuiInputBase-input': {
                         padding: '10px',
                         borderRadius: "12px",

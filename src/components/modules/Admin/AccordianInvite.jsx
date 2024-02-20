@@ -42,7 +42,7 @@ function AccordianForm() {
 
     return (
         <>
-            <div style={{ padding: '20px',  maxHeight: '60vh', overflowX: 'scroll' }}>
+            <div style={{ padding: '20px',  maxHeight: '60vh', overflowY: 'scroll' }}>
                 {formDataList.map((formData, index) => (
                     <StyledAccordion key={index} TransitionProps={{ unmountOnExit: true }} style={{ marginTop: '20px' }}>
                         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
