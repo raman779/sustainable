@@ -4,6 +4,8 @@ import {Grid } from '@mui/material';
 import TextInput from '../../common/TextInput';
 import FormWrapper from '../../common/StyledFormWrapper';
 import CheckBoxInput from '../../common/CheckBoxInput';
+import { useDispatch } from 'react-redux';
+import { login } from '../../../store/userSlice';
 
 import { useNavigate } from 'react-router-dom';
 
@@ -16,13 +18,25 @@ const Login = ({ setLogin }) => {
 
   const navigate = useNavigate()
 
+
+
+
+  const dispatch = useDispatch();
+
+  const handleLogin = () => {
+    const userData = { name : "ravindra", email:"ravindrayadav5438@gmail.com"};
+    dispatch(login(userData));
+    navigate("/group")
+
+  };
+
   return (
     <>
       <CssBaseline />
 
       <FormWrapper
         subHeadingText={{text:"New ? Create an Account",onClick :() => {setLogin(prev => !prev)}}}
-        buttonInputs={[{text:"sign in",onClick:() => {navigate("/group")}}]}
+        buttonInputs={[{text:"sign in",onClick:() => {handleLogin()}}]}
         headingText='Log In'
       >
           <Grid container spacing={2}>

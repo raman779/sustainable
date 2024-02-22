@@ -8,6 +8,10 @@ import CommonContainer from '../components/common/CommonContainer';
 const Auth = () => {
     const theme = useTheme()
     const [login, setLogin] = useState(false);
+
+    
+
+
     return (
         <CommonContainer>
                 {login ? <Login setLogin={setLogin} /> : <Register setLogin={setLogin} />}
