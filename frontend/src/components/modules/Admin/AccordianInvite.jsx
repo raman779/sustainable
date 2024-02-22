@@ -4,6 +4,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import theme from '../../../styles/theme';
 import AddIcon from '@mui/icons-material/Add';
 import { styled } from '@mui/system';
+import TextInput from '../../common/TextInput';
 // import { Accordion } from '@mui/material';
 
 const StyledAccordion = styled(Accordion)({
@@ -19,8 +20,8 @@ const StyledAccordion = styled(Accordion)({
   }
 });
 
-function AccordianForm() {
-    const [formDataList, setFormDataList] = useState([]);
+function AccordianForm({buttonText, onSubmit,formDataList, setFormDataList }) {
+    // const [formDataList, setFormDataList] = useState([]);
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
 
@@ -42,7 +43,7 @@ function AccordianForm() {
 
     return (
         <>
-            <div style={{ padding: '20px',  maxHeight: '60vh', overflowY: 'scroll' }}>
+            <div style={{ padding: '20px',  maxHeight: '40vh', overflowY: 'auto' }}>
                 {formDataList.map((formData, index) => (
                     <StyledAccordion key={index} TransitionProps={{ unmountOnExit: true }} style={{ marginTop: '20px' }}>
                         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
@@ -63,14 +64,14 @@ function AccordianForm() {
                     </StyledAccordion>
                 ))}
                 <div>
-                    <TextField
+                    <TextInput
                         placeholder="Email"
                         value={email}
                         onChange={handleChangeEmail}
                         autoComplete='off'
                         margin="normal"
                     />
-                    <TextField
+                    <TextInput
                         placeholder="Name"
                         value={name}
                         onChange={handleChangeName}
@@ -84,7 +85,7 @@ function AccordianForm() {
             <IconButton onClick={handleAddMore} style={{ display: 'flex', justifyContent: 'left', marginLeft: "5px" }}>
                 <AddIcon fontSize={"22"} style={{ fontSize: '2rem', color: theme.palette.error.main }} />
                 <Typography color={theme.palette.error.main} style={{ fontSize: '1.5rem', }}>
-                    Add More leaders
+                   {buttonText}
                 </Typography>
             </IconButton>
         </>

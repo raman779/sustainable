@@ -55,6 +55,9 @@ module.exports.SignupService = {
             const updateUser =  await db(moduleTable).where({ invite_code:code }).update(data);
             if(!updateUser)
             throw new NotFoundError();
+        else{
+            return ApiResponse('success',updateUser);
+        }
      
     },
     deleteUser: async (usersid) => {
@@ -136,7 +139,7 @@ module.exports.SignupService = {
             const whereData = {
                 email:data.email
             }
-            const existUser = await db(moduleTable).select("id","email","password","first_name","last_name").where(whereData).first();
+            const existUser = await db(moduleTable).select("id","email","password","user_role","first_name","last_name").where(whereData).first();
             if(existUser)
             {
                 const match = await bcrypt.compare(data.password, existUser.password);

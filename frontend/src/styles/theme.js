@@ -65,9 +65,10 @@ const theme = createTheme({
                 root: {
                     textTransform: 'none',
                     borderRadius: '10px',
-                    minWidth: '12rem',
-                    minHeight: '3rem',
+                    minWidth: '18rem',
+                    minHeight: '3.5rem',
                     fontWeight: '600',
+                    maxWidth:'20rem'
                 },
             },
         },
@@ -82,6 +83,8 @@ const theme = createTheme({
         MuiTextField: {
             styleOverrides: {
                 root: {
+                    minWidth: '18rem',
+                    maxWidth:'20rem',
                     backgroundColor: 'transparent',
                     width:'100%',
                     '& .MuiInputBase-input': {
@@ -121,6 +124,31 @@ const theme = createTheme({
                fontSize: "1.2rem"
             },
           },
+          MuiAlert:{
+            styleOverrides:{
+                root:{
+                    borderRadius: '20px',
+                    // padding: '10px',
+                    backgroundColor: 'rgba(255,255,255,0.5)',
+                    '& .MuiAlert-message':{
+                        fontSize: '0.8rem',
+                        fontWeight: '300',
+                        color: '#fff'
+                    },
+                    '& .MuiAlert-action':{
+                        fontSize: '0.8rem',
+                        fontWeight: '300',
+                        color: '#fff'
+                    },
+
+                    '& .MuiAlert-icon':{
+                        fontSize: '1.2rem',
+                        fontWeight: '600',
+                        color: '#fff'
+                    }
+                }
+            }
+          }
     },
 });
 

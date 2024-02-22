@@ -18,7 +18,7 @@ const FormWrapper = ({ children ,subHeadingText = {text:null,onClick:() => {}},h
                 {children}
             {buttonInputs.map((button,index) => {
                 return (
-                    <CustomButton text = {button.text} onClick={button.onClick} />
+                    <CustomButton text = {button.text} onClick={button.onClick}  />
                 )
             })
             }

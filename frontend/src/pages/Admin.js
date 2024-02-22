@@ -4,7 +4,7 @@ import { InviteLeader } from "../components/modules/Admin"
 import CommonContainer from "../components/common/CommonContainer";
 
 const Admin = () => {
-
+    const [formDataList, setFormDataList] = useState([])
     const [currentPage, setCurrentPage] = useState(1);
 
     const nextPage = () => {
@@ -17,7 +17,7 @@ const Admin = () => {
     return (
 
         <CommonContainer>
-            <InviteLeader />
+            <InviteLeader buttonText={'Add More Leader'} onSubmit={()=>{}} formDataList={formDataList} setFormDataList={setFormDataList}/>
         </CommonContainer>
         
 
