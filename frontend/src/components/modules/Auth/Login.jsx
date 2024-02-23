@@ -85,6 +85,7 @@ const Login = ({ setLogin }) => {
           <Grid item xs={12}>
             <TextInput
               value={password}
+              autoComplete='new-password'
               onChange={(e) => { setPassword(e.target.value); clearError(); }}
               type="password"
               label="Password"

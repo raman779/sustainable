@@ -6,8 +6,8 @@ import theme from "../../styles/theme";
 
 const MultiChoiceCheckbox = ({ checkBoxLabels, label, multi = false }) => {
     return (
-        <Box pt={theme.spacing(1)}>
-            <Typography textAlign={"left"} variant="body1">{label}</Typography>
+        <>
+            <Typography textAlign={"left"} variant="body2">{label}</Typography>
             <Box display="flex" flexDirection={multi && checkBoxLabels.length===4 ? "row" : "column"} flexWrap="wrap">
                 {checkBoxLabels.map((label, index) => (
                     <Box key={index} width={multi && checkBoxLabels.length===4  ? "50%" : "100%"} maxWidth={multi ? "50%" : "100%"} >
@@ -15,7 +15,7 @@ const MultiChoiceCheckbox = ({ checkBoxLabels, label, multi = false }) => {
                     </Box>
                 ))}
             </Box>
-        </Box>
+        </>
     )
 }
 

@@ -65,10 +65,9 @@ const theme = createTheme({
                 root: {
                     textTransform: 'none',
                     borderRadius: '10px',
-                    minWidth: '18rem',
                     minHeight: '3.5rem',
                     fontWeight: '600',
-                    maxWidth:'20rem'
+                    width:"100%"
                 },
             },
         },
@@ -83,8 +82,6 @@ const theme = createTheme({
         MuiTextField: {
             styleOverrides: {
                 root: {
-                    minWidth: '18rem',
-                    maxWidth:'20rem',
                     backgroundColor: 'transparent',
                     width:'100%',
                     '& .MuiInputBase-input': {
@@ -114,7 +111,12 @@ const theme = createTheme({
                     },
                     '& .MuiInputLabel-root':{
                         fontSize: "1.2rem"
-                    }
+                    },
+                    '@media (min-width: 600px)': {
+                        '& .MuiInputBase-input': {
+                            height: "1.6rem",
+                        },
+                    },
                 },
                
             },

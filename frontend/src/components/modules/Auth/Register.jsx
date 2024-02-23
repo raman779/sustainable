@@ -79,13 +79,13 @@ const Register = ({ setLogin }) => {
       >
         <Grid container spacing={1}>
           <Grid item xs={12}>
-            <TextInput label="Name" value={name} onChange={(e) => setName(e.target.value)} labelVariant='body1' />
+            <TextInput autoComplete="new-password" label="Name" value={name} onChange={(e) => setName(e.target.value)} labelVariant='body1' />
           </Grid>
           <Grid item xs={12}>
-            <TextInput label="Email" value={email} onChange={(e) => setEmail(e.target.value)} labelVariant='body1' disabled={inviteCode ? true : false} />
+            <TextInput autoComplete="new-password" label="Email" value={email} onChange={(e) => setEmail(e.target.value)} labelVariant='body1' disabled={inviteCode ? true : false} />
           </Grid>
           <Grid item xs={12}>
-            <TextInput label="Password" value={password}
+            <TextInput autoComplete="new-password" label="Password" value={password}
               onChange={(e) => { setPassword(e.target.value) }} type="password" labelVariant='body1' />
           </Grid>
         </Grid>

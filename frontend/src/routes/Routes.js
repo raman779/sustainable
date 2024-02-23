@@ -13,7 +13,8 @@ import SuperAdmin from '../pages/SuperAdmin';
 // const isAuthenticated = localStorage.getItem('authToken')? true :false
 
 const PrivateRoute = ({ path, element }) => {
-    const isAuthenticated = !!localStorage.getItem('authToken');
+    // const isAuthenticated = !!localStorage.getItem('authToken');
+    const isAuthenticated = true
     return isAuthenticated ? (
         element
     ) : (
@@ -23,18 +24,20 @@ const PrivateRoute = ({ path, element }) => {
 
 const ProjectRoutes = () => {
     return (
-        <Routes>
-            <Route path="/" element={<MainContainer><Home /></MainContainer>} />
-            <Route path="/auth" element={<Auth />} />
-            {/* Protected routes */}
-            <Route path="/details" element={<PrivateRoute element={<MainContainer><Leader /></MainContainer>} />} />
-            <Route path="/creategroup" element={<PrivateRoute element={<MainContainer><CreateGroup /></MainContainer>} />} />
-            <Route path='/admin' element={<PrivateRoute element={<MainContainer><Admin /></MainContainer>} />} />
-            <Route path='/super-admin' element={<PrivateRoute element={<MainContainer><SuperAdmin /></MainContainer>} />} />
-            <Route path='/group' element={<PrivateRoute element={<MainContainer><Group /></MainContainer>} />} />
-             {/* Redirect to home page for invalid routes  */}
-            <Route path="*" element={<Navigate to="/auth" />} />
-        </Routes>
+        <MainContainer>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/auth" element={<Auth />} />
+                {/* Protected routes */}
+                <Route path="/details" element={<PrivateRoute element={<Leader />} />} />
+                <Route path="/creategroup" element={<PrivateRoute element={<CreateGroup />} />} />
+                <Route path='/admin' element={<PrivateRoute element={<Admin />} />} />
+                <Route path='/super-admin' element={<PrivateRoute element={<SuperAdmin />} />} />
+                <Route path='/group' element={<PrivateRoute element={<Group />} />} />
+                {/* Redirect to home page for invalid routes  */}
+                <Route path="*" element={<Navigate to="/auth" />} />
+            </Routes>
+        </MainContainer>
     );
 };
 
