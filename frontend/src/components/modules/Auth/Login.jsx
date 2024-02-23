@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import { Grid } from '@mui/material';
 import TextInput from '../../common/TextInput';
@@ -15,29 +15,32 @@ const Login = ({ setLogin }) => {
   const { loading, fetchData } = useFetch();
   const navigate = useNavigate();
 
+  const emailRef = useRef(null);
+
+  useEffect(() => {
+    emailRef.current.focus();
+  }, []);
+
   const handleLogin = async () => {
     try {
       if (!email || !password) {
         setError('Please fill all the fields.');
         return;
       }
-  
+
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
         setError('Please enter a valid email.');
         return;
       }
-  
+
       const response = await fetchData({
         url: "/login",
-        data: { email, password },
+        data: { email:email.toLowerCase(), password },
         method: 'POST'
       });
-  
+
       if (response?.authToken) {
-
         localStorage.setItem("authToken", response.authToken);
-  
-
         const userRole = response.data.user_role;
         switch (userRole) {
           case "SUPERADMIN":
@@ -57,7 +60,12 @@ const Login = ({ setLogin }) => {
       setError('An unexpected error occurred.');
     }
   };
-  
+
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      handleLogin();
+    }
+  };
 
   const clearError = () => {
     setError(null);
@@ -74,6 +82,7 @@ const Login = ({ setLogin }) => {
         <Grid container mt={2}>
           <Grid item xs={12}>
             <TextInput
+              inputRef={emailRef}
               value={email}
               autoComplete='off'
               onChange={(e) => { setEmail(e.target.value); clearError(); }}
@@ -87,6 +96,7 @@ const Login = ({ setLogin }) => {
               value={password}
               autoComplete='new-password'
               onChange={(e) => { setPassword(e.target.value); clearError(); }}
+              onKeyPress={handleKeyPress}
               type="password"
               label="Password"
             />

@@ -43,9 +43,9 @@ function AccordianForm({buttonText, onSubmit,formDataList, setFormDataList }) {
 
     return (
         <>
-            <div style={{maxHeight: '40vh', overflowY: 'auto' }}>
+            <div style={{maxHeight: '50vh', overflowY: 'auto', paddingRight:"8px" }}>
                 {formDataList.map((formData, index) => (
-                    <StyledAccordion key={index} TransitionProps={{ unmountOnExit: true }} style={{ marginTop: '20px' }}>
+                    <StyledAccordion key={index} TransitionProps={{ unmountOnExit: true }} style={{ marginTop: '8px' }}>
                         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                             <Typography> {formData.email}</Typography>
                         </AccordionSummary>
@@ -81,7 +81,7 @@ function AccordianForm({buttonText, onSubmit,formDataList, setFormDataList }) {
                 </div>
 
             </div>
-            <IconButton onClick={handleAddMore} style={{ display: 'flex', justifyContent: 'left', marginLeft: "5px" }}>
+            <IconButton onClick={handleAddMore} style={{ display: 'flex', justifyContent: 'left', }}>
                 <AddIcon fontSize={"22"} style={{ fontSize: '2rem', color: theme.palette.error.main }} />
                 <Typography color={theme.palette.error.main}>
                    {buttonText}

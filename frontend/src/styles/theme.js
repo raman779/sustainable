@@ -65,12 +65,18 @@ const theme = createTheme({
                 root: {
                     textTransform: 'none',
                     borderRadius: '10px',
-                    minHeight: '3.5rem',
                     fontWeight: '600',
-                    width:"100%"
+                    width: "100%",
+                    '@media (max-width: 600px)': { // Adjust the max-width according to your requirements
+                        height: "3.2rem",
+                    },
+                    '@media (min-width: 601px)': { // Set default height for larger screens
+                        height: "2.8rem",
+                    },
                 },
             },
         },
+        
      
         MuiPaper: {
             styleOverrides: {
