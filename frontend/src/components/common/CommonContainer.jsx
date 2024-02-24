@@ -3,7 +3,7 @@ import { styled } from "@mui/system"
 const CommonBox = styled("div")(({ theme }) => ({
     padding:theme.spacing(4),
     margin:'auto',
-    maxWidth:'22rem'
+    width:'100%'
   }));
 
 

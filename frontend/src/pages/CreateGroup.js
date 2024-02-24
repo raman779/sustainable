@@ -8,7 +8,6 @@ const CreateGroup = () => {
     const [currentPage, setCurrentPage] = useState(1);
 
     const nextPage = () => {
-        console.log("ghggh")
         setCurrentPage((prevPage) => prevPage + 1);
     };
 

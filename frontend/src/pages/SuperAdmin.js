@@ -7,7 +7,18 @@ import TextInput from '../components/common/TextInput';
 import FormWrapper from '../components/common/StyledFormWrapper';
 import useFetch from '../hooks/usefetch';
 import { useTheme } from '@mui/material/styles';
-// import InviteLeader from "../components/modules/Admin";
+import BottomBar from "../components/common/BottomBar";
+import styled from "@emotion/styled";
+
+
+
+const Container = styled("div")(({ theme }) => ({
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    height: '100%',
+}));
+
 const SuperAdmin = () => {
     const theme = useTheme()
     const { loading, error, fetchData } = useFetch();
@@ -34,7 +45,7 @@ const SuperAdmin = () => {
             if (response) {
 
                 console.log("successfully created new org")
-                setCurrentPage(1)
+                setCurrentPage(2)
 
 
             } else {
@@ -54,10 +65,11 @@ const SuperAdmin = () => {
 
 
     return (
-        <CommonContainer>
+        <Container>
             <>
                 <CssBaseline />
-                {currentPage === 0 ? <FormWrapper
+                {currentPage === 0 && <Box>super admin home</Box>}
+                {currentPage === 1 && <FormWrapper
 
                     buttonInputs={[{
                         text: "Create", onClick: () => {
@@ -67,22 +79,22 @@ const SuperAdmin = () => {
                     }]}
                     headingText='Add New Organisation'
                 >
-                    <Grid container spacing={2} mt={2} mb={2}>
-                        <Grid item xs={12}>
                             <TextInput
                                 value={orgName}
                                 onChange={(e) => setOrgName(e.target.value)}
                                 label="Organisation Name"
 
                             />
-                        </Grid>
-    
-                    </Grid>
-                </FormWrapper> :
+                </FormWrapper>}
 
-                    <InviteLeader buttonText={'Add More Admins'} onSubmit={onAddAdmin} formDataList={formDataList} setFormDataList={setFormDataList} />}
+                {currentPage === 2 && <InviteLeader buttonText={'Add More Admins'} onSubmit={onAddAdmin} formDataList={formDataList} setFormDataList={setFormDataList} />}
             </>
-        </CommonContainer>
+            <BottomBar buttonInputs = {[
+                {text:"Home",onClick:() => {console.log("Home")}},
+                {text:"Add Organization",onClick:() => {setCurrentPage(1)}},
+                {text:"Profile",onClick:() => {console.log("Profile")}}
+                ]}/>
+        </Container>
 
 
     )

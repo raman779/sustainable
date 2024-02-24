@@ -7,7 +7,7 @@ const StyledPaper = styled("div")(({ theme }) => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    width:'40vw',
+    width:'30vw',
     height:'100vh',
     [theme.breakpoints.down('md')]: {
       width:'100vw',

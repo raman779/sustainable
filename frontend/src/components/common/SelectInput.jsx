@@ -42,7 +42,7 @@ const TypographyInput = styled(Typography)({
   });
 
 
-const SelectInput = ({value,setValue,label,labelVariant = "body2", helperText,...rest}) => {
+const SelectInput = ({value,setValue,label,labelVariant = "body2", helperText,placeholder = "enter something",...rest}) => {
 
     const handleChange = (event) => {
         setValue(event.target.value);
@@ -53,12 +53,13 @@ const SelectInput = ({value,setValue,label,labelVariant = "body2", helperText,..
         <FormControl sx={{ minWidth: 120}}>
         {label && <TypographyInput variant={labelVariant}>{label.toUpperCase()}</TypographyInput>}
         <SelectField
+          placeholder = {placeholder}
           value={value}
           onChange={handleChange}
           displayEmpty
           inputProps={{ 'aria-label': 'Without label' }}
         >
-          <MenuItem style = {{color:"red"}} value="">
+          <MenuItem style = {{color:"white"}} value="">
             <em>Select One</em>
           </MenuItem>
           <MenuItem style = {{color:"red"}} value={10}>Ten</MenuItem>
