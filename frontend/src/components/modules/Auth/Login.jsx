@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import { Grid } from '@mui/material';
 import TextInput from '../../common/TextInput';
@@ -7,12 +7,14 @@ import CheckBoxInput from '../../common/CheckBoxInput';
 import useFetch from '../../../hooks/usefetch';
 import { useNavigate } from 'react-router-dom';
 import Alert from '@mui/material/Alert';
+import UserContext from '../../../store/context';
 
 const Login = ({ setLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
   const { loading, fetchData } = useFetch();
+  const {user,login,logout} = useContext(UserContext)
   const navigate = useNavigate();
 
   const emailRef = useRef(null);
@@ -41,6 +43,7 @@ const Login = ({ setLogin }) => {
 
       if (response?.authToken) {
         localStorage.setItem("authToken", response.authToken);
+        login(response)
         const userRole = response.data.user_role;
         switch (userRole) {
           case "SUPERADMIN":
