@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import { Grid } from '@mui/material';
 import TextInput from '../../common/TextInput';
@@ -7,6 +7,7 @@ import CheckBoxInput from '../../common/CheckBoxInput';
 import useFetch from '../../../hooks/usefetch';
 import { useNavigate } from 'react-router-dom';
 import Alert from '@mui/material/Alert';
+import UserContext from '../../../store/context';
 
 const Login = ({ setLogin }) => {
   const [email, setEmail] = useState('');
@@ -14,6 +15,18 @@ const Login = ({ setLogin }) => {
   const [error, setError] = useState(null);
   const { loading, fetchData } = useFetch();
   const navigate = useNavigate();
+
+
+
+
+/** you can use user by using useContext hook and passing UserContext,
+ * there are two functions defined in UserContext (login) which will take user as param and set the global user state, and (logout) which will empty the user state on 
+ * envokation,
+ * you can also define the logic for where to store user in UserContext.
+ * and check it on next login.
+ */
+
+const {login,logout,user} = useContext(UserContext)
 
   const emailRef = useRef(null);
 

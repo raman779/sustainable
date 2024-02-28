@@ -5,6 +5,7 @@ import theme from './styles/theme';
 import { BrowserRouter as Router } from 'react-router-dom'; 
 import ProjectRoutes from './routes/Routes'; 
 import { styled } from '@mui/system';
+import UserProvider from './store/UserProvider';
 
 
 const AppContainer = styled('div')(({ theme }) => ({
@@ -19,11 +20,13 @@ const AppContainer = styled('div')(({ theme }) => ({
 function App() {
     return (
         <ThemeProvider theme={theme}>
+            <UserProvider>
             <Router>
                 <AppContainer>
                     <ProjectRoutes />
                 </AppContainer>
             </Router>
+            </UserProvider>
         </ThemeProvider>
     );
 }
