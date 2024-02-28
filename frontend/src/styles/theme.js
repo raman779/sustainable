@@ -44,7 +44,7 @@ const theme = createTheme({
             color: '#ffffff',
         },
         body2: {
-            fontSize: '0.9rem',
+            fontSize: '0.7rem',
             fontWeight: 400,
             color: '#ffffff',
         },
@@ -122,6 +122,7 @@ const theme = createTheme({
                     },
                     '& .MuiInputBase-input::placeholder': {
                         color: 'white',
+                        fontSize:'1rem'
                     },
                     '& .MuiInputBase-root.Mui-error': {
                         border: "none !important",
@@ -171,7 +172,27 @@ const theme = createTheme({
                 }
             }
         },
-
+        MuiSelect: {
+            styleOverrides: {
+              select: {
+                '&.MuiSelect-select': {
+                  outline: 'none',
+                  border: 'none',
+                  textAlign:'left',
+                },
+              },
+              root: {
+                color: 'white',
+                border: 'none',
+                borderRadius: '16px',
+                background:'rgba(255,255,255,0.5)'
+              },
+              icon: {
+                color: 'white',
+              },
+            },
+          },
+        
     },
 });
 

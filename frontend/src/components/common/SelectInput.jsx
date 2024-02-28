@@ -12,45 +12,7 @@ const TypographyInput = styled(Typography)({
     marginBottom: '.6rem',
   });
   
-  const SelectField = styled(Select)({
-    // '& .MuiInputBase-input': {
-    //   padding: '10px',
-    //   borderRadius: theme.spacing(1.5),
-    //   backgroundColor: '#ee8f8f',
-    //   color: 'white',
-    //   textAlign:'left',
-    //   outline:'none'
-    // },
-    // '& .MuiOutlinedInput-root': {
-    //   '& fieldset': {
-    //     border: 'none',
-    //   },
-    // },
-    // '& .MuiInputBase-input:focus': {
-    //   backgroundColor: '#ee8f8f',
-    //   border:'none'
-    // },
-    // '& .MuiInputBase-input::placeholder': {
-    //   color: 'white',
-    // },
-    // '& .MuiInputBase-root.Mui-error': {
-    //   border: "none !important",
-    // },
-    // '& .MuiFormHelperText-root.Mui-error': {
-    //   color: theme.palette.error.main,
-    // },
-    // '& .MuiMenuItem':{
-    //   backgroundColor: 'black',
-    // },
-    // '& .MuiList':{
-    //   padding: '10px',
-    //   borderRadius: theme.spacing(1.5),
-    //   backgroundColor: 'black',
-    //   color: 'white',
-    //   textAlign:'left',
-    //   outline:'none'
-    // }
-  });
+  
 
 
 const SelectInput = ({value,setValue,label,labelVariant = "body2", helperText,placeholder = "enter something",...rest}) => {
@@ -61,23 +23,18 @@ const SelectInput = ({value,setValue,label,labelVariant = "body2", helperText,pl
 
 
     return(
-        <FormControl sx={{ minWidth: 120}}>
+        <FormControl sx={{width:'100%',paddingBlock:theme.spacing(1)}}>
         {label && <TypographyInput variant={labelVariant}>{label.toUpperCase()}</TypographyInput>}
-        <SelectField
-          placeholder = {placeholder}
+        <Select
+          variant='outlined'
           value={value}
           onChange={handleChange}
-          displayEmpty
-          inputProps={{ 'aria-label': 'Without label' }}
-          
         >
-          <MenuItem style = {{color:"white"}} value="">
-            <em>Select One</em>
-          </MenuItem>
-          <MenuItem style = {{color:"red"}} value={10}>Ten</MenuItem>
-          <MenuItem style = {{color:"red"}} value={20}>Twenty</MenuItem>
-          <MenuItem style = {{color:"red"}} value={30}>Thirty</MenuItem>
-        </SelectField>
+          <MenuItem disabled value={0} style = {{color:"GrayText",background:'white',opacity:1}}>{placeholder}</MenuItem>
+          <MenuItem style = {{color:"red",background:'white'}} value={10}>Ten</MenuItem>
+          <MenuItem style = {{color:"red",background:'white'}} value={20}>Twenty</MenuItem>
+          <MenuItem style = {{color:"red",background:'white'}} value={30}>Thirty</MenuItem>
+        </Select>
         {helperText && <Typography textAlign={"left"} variant='subtitle2'>If you don’t see your organisation in the drop down,email us and we’ll help you get set-up.</Typography>}
       </FormControl>
     )

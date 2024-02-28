@@ -13,8 +13,8 @@ import SuperAdmin from '../pages/SuperAdmin';
 // const isAuthenticated = localStorage.getItem('authToken')? true :false
 
 const PrivateRoute = ({ path, element }) => {
-    const isAuthenticated = !!localStorage.getItem('authToken');
-    // const isAuthenticated = true
+    // const isAuthenticated = !!localStorage.getItem('authToken');
+    const isAuthenticated = true
     return isAuthenticated ? (
         element
     ) : (

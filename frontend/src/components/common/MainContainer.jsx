@@ -8,6 +8,7 @@ const StyledPaper = styled("div")(({ theme }) => ({
     flexDirection: 'column',
     justifyContent: 'center',
     width:'30vw',
+    minWidth:'22rem',
     height:'100vh',
     [theme.breakpoints.down('md')]: {
       width:'100vw',

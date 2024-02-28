@@ -1,11 +1,11 @@
 import React from 'react';
-import { styled, TextField, Typography } from '@mui/material';
+import { FormHelperText, styled, TextField, Typography } from '@mui/material';
 import theme from '../../styles/theme';
 
 const InputContainer = styled('div')({
   display: 'flex',
   flexDirection: 'column',
-  marginBottom: '16px',
+  marginBlock: theme.spacing(1),
 });
 
 const TypographyInput = styled(Typography)({
@@ -21,7 +21,6 @@ const TextInput = ({ label, error, helperText,labelVariant = "body2", ...rest })
       {label && <TypographyInput variant={labelVariant}>{label.toUpperCase()}</TypographyInput>}
       <TextField
         error={error}
-        helperText={helperText}
         InputProps={{
           theme: theme,
         }}

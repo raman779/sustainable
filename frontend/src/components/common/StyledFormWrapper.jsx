@@ -6,7 +6,6 @@ import CustomButton from './Button';
 const StyledFormWrapper = styled(Container)({
   display: 'flex',
   flexDirection: 'column',
-  justifyContent: 'center',
   height:"100%"
 });
 
